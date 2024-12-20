@@ -1,0 +1,17 @@
+---
+- name: Clone a Git Repository
+  hosts: localhost
+  become: yes
+  tasks:
+    - name: Install Git
+      apt:
+        name: git
+        state: present
+        # update_cache: yes
+
+    - name: Clone the Git repository
+      git:
+        repo: "https://github.com/paycenonoli/ovia-jaiswal-Ekart.git"
+        dest: /home/ojpascale/ovia-ansible-demo/ovia-ansible-demo-repo
+        version: main
+        force: yes
